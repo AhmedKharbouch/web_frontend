@@ -1,0 +1,39 @@
+<div class="container mt-3">
+  <div class="card col-md-6  offset-3">
+    <div class="card-header">New Product</div>
+    <hr>
+    <div class="card-body">
+      <form [formGroup]="newProductForGroup" (ngSubmit)="handleSaveProduct()">
+        <div class="mb-3">
+          <label class="form-label">Label:</label>
+          <input type="text" formControlName="label" class="form-control">
+          <span class="text-danger" *ngIf="newProductForGroup.controls['label'].touched
+            && newProductForGroup.touched
+            && newProductForGroup.controls['label'].errors!['required']">
+            label is Required
+          </span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Price:</label>
+          <input type="number" formControlName="name" class="form-control">
+          <span class="text-danger" *ngIf="newProductForGroup.controls['name'].touched
+            && newProductForGroup.touched
+            && newProductForGroup.controls['name'].errors!['required']">
+            price is Required
+          </span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Quantity:</label>
+          <input type="number" formControlName="quantity" class="form-control">
+          <span class="text-danger" *ngIf="newProductForGroup.controls['quantity'].touched
+            && newProductForGroup.touched
+            && newProductForGroup.controls['quantity'].errors!['required']">
+            quantity is Required
+          </span>
+        </div>
+        <button [disabled]="!newProductForGroup.valid" class="btn btn-outline-success">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+

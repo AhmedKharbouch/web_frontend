@@ -1,0 +1,32 @@
+<div class="container mt-2">
+  <ng-container>
+
+    <h1 style="text-align: center" >Products</h1>
+    <hr>
+    <table class="table ">
+
+      <thead>
+      <tr>
+        <th>id</th><th>label</th><th>price</th><th>quantity</th><th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of products | async">
+        <td>{{c.id }}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.price }}</td>
+        <td> {{c.quantity }}</td>
+        <td>
+          <button (click)="handleDeleteCategorie(c)" class="btn btn-danger">
+            <i class="bi bi-trash"></i>
+          </button>
+          <button style="margin-left: 5%" (click)="handleUpdateCategorie(c)" class="btn btn-success">
+            <i class="bi bi-wrench"></i>
+          </button>
+        </td>
+
+
+      </tbody>
+    </table>
+  </ng-container>
+</div>

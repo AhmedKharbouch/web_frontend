@@ -1,0 +1,31 @@
+<div class="container mt-2">
+  <ng-container>
+
+    <h1 style="text-align: center" >Products</h1>
+    <hr>
+    <table class="table ">
+
+      <thead>
+      <tr>
+        <th>id</th><th>name</th><th>email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of customer | async">
+        <td>{{c.id }}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.email | date: 'dd/MM/yyyy'}}</td>
+        <td>
+          <button (click)="handleDeleteCustomer(c)" class="btn btn-danger">
+            <i class="bi bi-trash"></i>
+          </button>
+          <button style="margin-left: 5%" (click)="handleUpdateCustomer(c)" class="btn btn-success">
+            <i class="bi bi-wrench"></i>
+          </button>
+        </td>
+
+
+      </tbody>
+    </table>
+  </ng-container>
+</div>

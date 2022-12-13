@@ -1,0 +1,31 @@
+<div class="container mt-2">
+  <ng-container>
+
+    <h1 style="text-align: center" >Billing</h1>
+    <hr>
+    <table class="table ">
+
+      <thead>
+      <tr>
+        <th>id</th><th>label</th><th>Date</th><th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of bills | async">
+        <td>{{c.id }}</td>
+        <td>{{c.customer.name}}</td>
+        <td>{{c.billingDate }}</td>
+        <td>
+          <button (click)="handleDeleteBill(c)" class="btn btn-danger">
+            <i class="bi bi-trash"></i>
+          </button>
+          <button style="margin-left: 5%" (click)="handleUpdateBill(c)" class="btn btn-success">
+            <i class="bi bi-wrench"></i>
+          </button>
+        </td>
+
+
+      </tbody>
+    </table>
+  </ng-container>
+</div>
